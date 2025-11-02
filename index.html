@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sprite Sheet Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="input-panel">
+        <h1 class="app-title">スプライトシートジェネレーター</h1>
+        <label class="input-label" for="spriteInput">スプライト配列データ</label>
+        <textarea
+          id="spriteInput"
+          class="sprite-textarea"
+          placeholder="配列データをここにペースト"
+        ></textarea>
+        <p class="input-hint">
+          例: 12×12の数値配列をJSON形式で入力してください（例文は要件定義書を参照）。
+        </p>
+        <div class="button-group">
+          <button id="addButton" class="primary-button" type="button">
+            追加
+          </button>
+          <button id="clearButton" class="secondary-button" type="button">
+            クリア
+          </button>
+        </div>
+        <p id="errorMessage" class="error-message" aria-live="polite"></p>
+      </section>
+      <section class="preview-panel">
+        <div class="preview-header">
+          <h2 class="preview-title">プレビュー</h2>
+          <p id="previewInfo" class="preview-info">スプライト数: 0個 / サイズ: 0×0px</p>
+          <button id="exportButton" class="export-button" type="button" disabled>
+            PNG出力
+          </button>
+        </div>
+        <div class="preview-wrapper">
+          <div id="p5-container" class="canvas-container"></div>
+        </div>
+      </section>
+      <section class="layout-panel">
+        <div class="layout-panel-header">
+          <h2 class="layout-panel-title">レイアウト設定</h2>
+          <div class="layout-panel-presets">
+            <label class="input-label" for="layoutPreset">プリセット</label>
+            <select id="layoutPreset" class="layout-select">
+              <option value="default">標準 (8列 / パディング0 / マージン0)</option>
+              <option value="tight">密集 (12列 / パディング0 / マージン0)</option>
+              <option value="spaced">間隔あり (6列 / パディング2 / マージン2)</option>
+              <option value="custom">カスタム設定</option>
+            </select>
+          </div>
+        </div>
+        <div class="layout-form">
+          <label class="layout-field">
+            <span>横列数</span>
+            <select id="layoutColumns" class="layout-select">
+              <option value="4">4列</option>
+              <option value="6">6列</option>
+              <option value="8" selected>8列</option>
+              <option value="10">10列</option>
+              <option value="12">12列</option>
+              <option value="14">14列</option>
+              <option value="16">16列</option>
+            </select>
+          </label>
+          <label class="layout-field">
+            <span>パディング</span>
+            <select id="layoutPadding" class="layout-select">
+              <option value="0" selected>0px</option>
+              <option value="1">1px</option>
+              <option value="2">2px</option>
+              <option value="3">3px</option>
+              <option value="4">4px</option>
+            </select>
+          </label>
+          <label class="layout-field">
+            <span>マージン</span>
+            <select id="layoutMargin" class="layout-select">
+              <option value="0" selected>0px</option>
+              <option value="1">1px</option>
+              <option value="2">2px</option>
+              <option value="3">3px</option>
+              <option value="4">4px</option>
+            </select>
+          </label>
+        </div>
+      </section>
+      <section class="sprite-panel">
+        <div class="sprite-panel-header">
+          <h2 class="sprite-panel-title">スプライト一覧</h2>
+          <button id="clearAllButton" class="danger-button" type="button">
+            全削除
+          </button>
+        </div>
+        <div id="spriteList" class="sprite-list" aria-live="polite"></div>
+        <p id="spriteListEmpty" class="sprite-list-empty">まだスプライトが追加されていません。</p>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.10.0/lib/p5.min.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>

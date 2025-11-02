@@ -1,0 +1,349 @@
+:root {
+  color-scheme: light dark;
+  --bg-main: #f4f4f4;
+  --bg-panel: #ffffff;
+  --text-main: #222222;
+  --text-muted: #555555;
+  --accent: #007bff;
+  --accent-hover: #005dc0;
+  --danger: #dc3545;
+  --border-color: #d0d0d0;
+  --grid-gap: 16px;
+  font-family: "M PLUS 1", "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 400px) 1fr;
+  gap: var(--grid-gap);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.input-panel,
+.preview-panel {
+  background-color: var(--bg-panel);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.app-title {
+  margin: 0 0 16px;
+  font-size: 24px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.sprite-textarea {
+  width: 100%;
+  min-height: 160px;
+  resize: vertical;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-family: "Courier New", "Cascadia Code", monospace;
+  font-size: 14px;
+}
+
+.input-hint {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.primary-button,
+.secondary-button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.primary-button {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.primary-button:hover {
+  background-color: var(--accent-hover);
+}
+
+.secondary-button {
+  background-color: #f1f1f1;
+  color: var(--text-muted);
+}
+
+.secondary-button:hover {
+  background-color: #dfdfdf;
+}
+
+.error-message {
+  min-height: 24px;
+  margin-top: 12px;
+  color: var(--danger);
+  font-size: 14px;
+}
+
+.preview-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-info {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.layout-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--bg-panel);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  grid-column: 1 / -1;
+}
+
+.layout-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.layout-panel-title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.layout-panel-presets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.layout-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.layout-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.layout-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: var(--text-main);
+  appearance: none;
+}
+
+.layout-select:focus {
+  outline: 2px solid var(--accent);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.preview-title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.export-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.export-button:hover {
+  background-color: var(--accent-hover);
+}
+
+.export-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.preview-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-conic-gradient(
+      #e0e0e0 0deg 90deg,
+      #ffffff 90deg 180deg
+    )
+    0 0 / 32px 32px;
+  border-radius: 12px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.canvas-container {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1;
+}
+
+.sprite-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--bg-panel);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  grid-column: 1 / -1;
+}
+
+.sprite-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sprite-panel-title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.danger-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--danger);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
+
+.danger-button:hover {
+  opacity: 0.8;
+}
+
+.sprite-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 16px;
+}
+
+.sprite-list-empty {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.sprite-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+}
+
+.sprite-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: repeating-conic-gradient(
+      #e0e0e0 0deg 90deg,
+      #ffffff 90deg 180deg
+    )
+    0 0 / 12px 12px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.sprite-thumb canvas {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.sprite-index {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.sprite-delete {
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  background-color: #e0e0e0;
+  color: var(--text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sprite-delete:hover {
+  background-color: #cfcfcf;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-container {
+    max-width: 320px;
+  }
+}
